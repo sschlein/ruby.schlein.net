@@ -18,5 +18,27 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard', [
+        'videos' => \App\Models\Video::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get()
+    ]);
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/user/{user}', function (\App\Models\User $user) {
+    if (! auth()->user()->access) {
+        abort(403);
+    }
+
+    return view('dashboard', [
+        'videos' => \App\Models\Video::where('user_id', $user->id)->orderBy('id', 'desc')->get()
+    ]);
+})->name('users.show');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/users', function () {
+    if (! auth()->user()->access) {
+        abort(403);
+    }
+
+    return view('users', [
+        'users' => \App\Models\User::all(),
+    ]);
+})->name('users.index');
