@@ -32,7 +32,13 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 @foreach($videos as $video)
-                    <a class="font-2xl underline" href="/video/{{ $video->id }}">#{{ $video->id }}</a>
+                    <div>
+                        @if(Route::currentRouteName() === 'video')
+                            <a class="font-2xl underline" href="/"><<</a>
+                        @else
+                            <a class="font-2xl underline" href="/video/{{ $video->id }}">#{{ $video->id }}</a>
+                        @endif
+                    </div>
                     <div class="mb-2">
                         Hochgeladen am {{ $video->created_at->format('d.m.y H:i') }} Uhr von {{ $video->user->name }}
                     </div>

@@ -24,7 +24,7 @@ Route::get('/video/{video}', function ($video) {
     return view('welcome', [
         'videos' => collect([$video]),
     ]);
-});
+})->name('video');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard', [
