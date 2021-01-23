@@ -16,26 +16,6 @@
                 <div class='embed-container'><iframe src='{{ $video->youtube_url }}' frameborder='0' allowfullscreen></iframe></div>
             </div>
             @endforeach
-            <!--
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-8">
-                <div class='embed-container'><iframe src='https://www.youtube.com/embed/678MCqnECl0' frameborder='0' allowfullscreen></iframe></div>
-            </div>
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-8">
-                <div class='embed-container'><iframe src='https://www.youtube.com/embed/aShS24L34sg' frameborder='0' allowfullscreen></iframe></div>
-            </div>
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-8">
-                <div class='embed-container'><iframe src='https://www.youtube.com/embed/bsryqFgAXPY' frameborder='0' allowfullscreen></iframe></div>
-            </div>
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-8">
-                <div class='embed-container'><iframe src='https://www.youtube.com/embed/mebqibHt170' frameborder='0' allowfullscreen></iframe></div>
-            </div>
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-8">
-                <div class='embed-container'><iframe src='https://www.youtube.com/embed/TFVTIRyOlaw' frameborder='0' allowfullscreen></iframe></div>
-            </div>
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-8">
-                <div class='embed-container'><iframe src='https://www.youtube.com/embed/qaj1-c9XNWg' frameborder='0' allowfullscreen></iframe></div>
-            </div>
-            -->
         </div>
     </div>
 </x-app-layout>
