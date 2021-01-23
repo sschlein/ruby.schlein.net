@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome', [
-        'videos' => \App\Models\Video::where('public', true)->orderBy('id', 'desc')->paginate(10)
+        'videos' => \App\Models\Video::where('public', true)->orderBy('created_at', 'desc')->paginate(10)
     ]);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard', [
-        'videos' => \App\Models\Video::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->get()
+        'videos' => \App\Models\Video::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get()
     ]);
 })->name('dashboard');
 
@@ -31,7 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/user/{user}', function (\
     }
 
     return view('dashboard', [
-        'videos' => \App\Models\Video::where('user_id', $user->id)->orderBy('id', 'desc')->get()
+        'videos' => \App\Models\Video::where('user_id', $user->id)->orderBy('created_at', 'desc')->get()
     ]);
 })->name('users.show');
 
