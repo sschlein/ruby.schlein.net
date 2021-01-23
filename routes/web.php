@@ -19,6 +19,13 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/video/{video}', function ($video) {
+    $video = \App\Models\Video::findOrFail($video);
+    return view('welcome', [
+        'videos' => collect([$video]),
+    ]);
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard', [
         'videos' => \App\Models\Video::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get()
