@@ -13,4 +13,9 @@ class Video extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getVideoUrlAttribute()
+    {
+        return str_contains($this->youtube_url,'http') ? $this->youtube_url : 'https://www.youtube.com/embed/' . $this->youtube_url;
+    }
 }
