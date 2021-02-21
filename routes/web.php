@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome', [
-        'videos' => \App\Models\Video::where('public', true)->orderBy('created_at', 'desc')->paginate(10)
+        'videos' => \App\Models\Video::where('public', true)->orderBy('created_at', 'desc')->paginate(5)
     ]);
 });
 
