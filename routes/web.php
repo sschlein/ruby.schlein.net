@@ -30,7 +30,7 @@ Route::get('/guide', function () {
     return view('guide', [
         'tricks' => \App\Models\Trick::where('public', true)->paginate(5)
     ]);
-});
+})->name('guide');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard', [
