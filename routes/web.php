@@ -26,6 +26,12 @@ Route::get('/video/{video}', function ($video) {
     ]);
 })->name('video');
 
+Route::get('/guide', function () {
+    return view('guide', [
+        'tricks' => \App\Models\Trick::where('public', true)->paginate(5)
+    ]);
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard', [
         'videos' => \App\Models\Video::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get()
